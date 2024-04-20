@@ -2,7 +2,7 @@ services:
   mariadb:
     image: 'mariadb:latest'
     environment:
-      - 'MARIADB_DATABASE=mydatabase'
+      - 'MARIADB_DATABASE=xmldatabase'
       - 'MARIADB_PASSWORD=secretxml'
       - 'MARIADB_ROOT_PASSWORD=verysecretxml'
       - 'MARIADB_USER=userxml'
