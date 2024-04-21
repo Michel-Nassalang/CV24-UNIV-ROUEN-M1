@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Erreur - 404</title>
+    <link rel="stylesheet" type="text/css" href="/css/error.css">
+</head>
+<body>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Page non trouvée: Une erreur est survenue</h4>
+                </div>
+                <div class="card-body">
+                    <p th:text="${errorMessage}">Une erreur s'est produite.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
