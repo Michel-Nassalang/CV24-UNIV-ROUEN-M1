@@ -6,4 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 // This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
 // CRUD refers Create, Read, Update, Delete
 public interface Cv24Repository extends CrudRepository<Cv24Entity, Integer> {
+    Cv24Entity findById(int id);
 }

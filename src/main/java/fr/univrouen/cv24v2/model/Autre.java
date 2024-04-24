@@ -5,9 +5,9 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "autre", namespace = "http://univ.fr/cv24")
+@XmlRootElement(name = "cv24:autre", namespace = "http://univ.fr/cv24")
 @XmlAccessorType(XmlAccessType.FIELD)
-class Autre {
+public class Autre {
 
     @XmlAttribute(name = "titre", required = true)
     private String titre;

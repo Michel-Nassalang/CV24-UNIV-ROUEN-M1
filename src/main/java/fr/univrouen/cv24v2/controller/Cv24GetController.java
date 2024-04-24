@@ -1,27 +1,28 @@
 package fr.univrouen.cv24v2.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-public class IndexController {
+@RestController
+@RequestMapping(path="/cv24")
+public class Cv24GetController {
 
-    @GetMapping("/")
-    public String index(Model model) {
+    @GetMapping("/resume/xml")
+    public String resumexml(Model model) {
         model.addAttribute("dev1","Michel Nassalang");
 
         model.addAttribute("dev2","Sid Ahmed Brahimi");
         return "Index";
     }
 
-    @GetMapping("/help")
-    public String help(Model model) {
+    @GetMapping("/resume")
+    public String resumehtml(Model model) {
         model.addAttribute("dev1","Michel Nassalang");
 
         model.addAttribute("dev2","Sid Ahmed Brahimi");
         return "Index";
     }
-
 
 }

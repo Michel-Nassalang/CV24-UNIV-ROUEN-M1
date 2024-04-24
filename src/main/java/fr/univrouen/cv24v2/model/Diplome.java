@@ -5,17 +5,17 @@ import jakarta.xml.bind.annotation.*;
 
 import java.util.Date;
 
-@XmlRootElement(name = "diplome", namespace = "http://univ.fr/cv24")
+@XmlRootElement(name = "cv24:diplome", namespace = "http://univ.fr/cv24")
 @XmlAccessorType(XmlAccessType.FIELD)
-class Diplome {
+public class Diplome {
 
-    @XmlElement(name = "date", required = true)
+    @XmlElement(name = "cv24:date", required = true)
     private Date date;
 
-    @XmlElement(name = "institut")
+    @XmlElement(name = "cv24:institut")
     private String institut;
 
-    @XmlElement(name = "titre", required = true)
+    @XmlElement(name = "cv24:titre", required = true)
     private String titre;
 
     @XmlAttribute(name = "niveau", required = true)

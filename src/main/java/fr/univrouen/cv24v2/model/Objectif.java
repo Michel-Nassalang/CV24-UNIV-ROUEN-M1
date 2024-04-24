@@ -3,9 +3,9 @@ package fr.univrouen.cv24v2.model;
 import jakarta.xml.bind.annotation.*;
 
 
-@XmlRootElement(name = "objectif", namespace = "http://univ.fr/cv24")
+@XmlRootElement(name = "cv24:objectif", namespace = "http://univ.fr/cv24")
 @XmlAccessorType(XmlAccessType.FIELD)
-class Objectif {
+public class Objectif {
 
     @XmlValue
     private String value;

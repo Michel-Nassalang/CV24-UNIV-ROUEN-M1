@@ -1,0 +1,15 @@
+body{
+    margin-inline: 15vw;
+}
+h1, h2 {
+    font-weight: bold;
+    color: blue;
+}
+
+h1 {
+    text-align: center;
+}
+
+.detail:nth-child(even) {
+    background-color: lightgray;
+}

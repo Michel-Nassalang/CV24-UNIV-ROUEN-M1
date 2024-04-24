@@ -3,9 +3,9 @@ package fr.univrouen.cv24v2.model;
 
 import jakarta.xml.bind.annotation.*;
 
-@XmlRootElement(name = "lv", namespace = "http://univ.fr/cv24")
+@XmlRootElement(name = "cv24:lv", namespace = "http://univ.fr/cv24")
 @XmlAccessorType(XmlAccessType.FIELD)
-class LangueVivante {
+public class LangueVivante {
 
     @XmlAttribute(name = "lang", required = true)
     private String lang;

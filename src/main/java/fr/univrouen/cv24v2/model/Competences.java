@@ -5,14 +5,14 @@ import jakarta.xml.bind.annotation.*;
 
 import java.util.List;
 
-@XmlRootElement(name = "competences", namespace = "http://univ.fr/cv24")
+@XmlRootElement(name = "cv24:competences", namespace = "http://univ.fr/cv24")
 @XmlAccessorType(XmlAccessType.FIELD)
-class Competences {
+public class Competences {
 
-    @XmlElement(name = "diplome")
+    @XmlElement(name = "cv24:diplome")
     private List<Diplome> diplome;
 
-    @XmlElement(name = "certif")
+    @XmlElement(name = "cv24:certif")
     private List<Certif> certif;
 
     public List<Diplome> getDiplome() {

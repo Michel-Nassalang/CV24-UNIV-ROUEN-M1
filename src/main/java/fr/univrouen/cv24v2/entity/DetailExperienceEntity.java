@@ -22,8 +22,8 @@ public class DetailExperienceEntity {
     @Column(name = "titre", nullable = false)
     private String titre;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "prof_id", referencedColumnName = "id")
+    @ManyToOne(targetEntity = ProfEntity.class)
+    @JoinColumn(name = "prof_id")
     private ProfEntity prof;
 
     // Getters and setters

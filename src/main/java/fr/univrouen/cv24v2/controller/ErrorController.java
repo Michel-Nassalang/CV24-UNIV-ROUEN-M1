@@ -13,5 +13,4 @@ public class ErrorController {
         return "error/404";
     }
 
-
 }

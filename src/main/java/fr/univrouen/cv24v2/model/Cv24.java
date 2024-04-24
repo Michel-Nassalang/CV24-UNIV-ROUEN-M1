@@ -4,21 +4,22 @@ import jakarta.xml.bind.annotation.*;
 
 @XmlRootElement(name = "cv24", namespace = "http://univ.fr/cv24")
 @XmlAccessorType(XmlAccessType.FIELD)
+
 public class Cv24 {
 
-    @XmlElement(name = "identite")
+    @XmlElement(name = "cv24:identite")
     private Identite identite;
 
-    @XmlElement(name = "objectif")
+    @XmlElement(name = "cv24:objectif")
     private Objectif objectif;
 
-    @XmlElement(name = "prof")
+    @XmlElement(name = "cv24:prof")
     private Prof prof;
 
-    @XmlElement(name = "competences")
+    @XmlElement(name = "cv24:competences")
     private Competences competences;
 
-    @XmlElement(name = "divers")
+    @XmlElement(name = "cv24:divers")
     private Divers divers;
 
     // Getters and setters
