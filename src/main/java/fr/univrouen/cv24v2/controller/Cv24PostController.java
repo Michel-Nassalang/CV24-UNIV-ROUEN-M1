@@ -26,28 +26,4 @@ public class Cv24PostController {
                 + flux + "</result>");
     }
 
-//    @GetMapping("/insert")
-//    public String showCreateForm(Model model) {
-//        Cv24 cv24 = new Cv24();
-//        cv24.setIdentite(new Identite());
-//        cv24.setObjectif(new Objectif());
-//        cv24.setProf(new Prof());
-//        cv24.setCompetences(new Competences());
-//        cv24.setDivers(new Divers());
-//        model.addAttribute("cv24", cv24);
-//        return "cv/Create";
-//    }
-
-//    @PostMapping("/insert")
-//    public String createCv(@ModelAttribute("cv24") Cv24 cv24, BindingResult bindingResult, Model model) {
-//        if (bindingResult.hasErrors()) {
-//            return "cv/Create";
-//        }
-//
-//        // Enregistrer le CV dans la base de données
-//        // ...
-//
-//        return "redirect:/cv24/html?id={id}";
-//    }
-
 }
