@@ -4,14 +4,13 @@ import jakarta.xml.bind.annotation.*;
 
 import java.util.List;
 
-@XmlRootElement(name = "cv24:divers", namespace = "http://univ.fr/cv24")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Divers {
 
-    @XmlElement(name = "cv24:lv")
+    @XmlElement(name = "lv", namespace = "http://univ.fr/cv24")
     private List<LangueVivante> lv;
 
-    @XmlElement(name = "cv24:autre")
+    @XmlElement(name = "autre", namespace = "http://univ.fr/cv24")
     private List<Autre> autre;
 
     // Getters and setters

@@ -4,11 +4,10 @@ import jakarta.xml.bind.annotation.*;
 
 import java.util.List;
 
-@XmlRootElement(name = "cv24:prof", namespace = "http://univ.fr/cv24")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Prof {
 
-    @XmlElement(name = "cv24:detail")
+    @XmlElement(name = "detail", namespace = "http://univ.fr/cv24")
     private List<DetailExperience> detail;
 
     // Getters and setters

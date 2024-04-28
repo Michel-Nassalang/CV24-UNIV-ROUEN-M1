@@ -3,9 +3,8 @@ package fr.univrouen.cv24v2.model;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
-import jakarta.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "cv24:autre", namespace = "http://univ.fr/cv24")
+
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Autre {
 
@@ -32,4 +31,5 @@ public class Autre {
     public void setComment(String comment) {
         this.comment = comment;
     }
+
 }

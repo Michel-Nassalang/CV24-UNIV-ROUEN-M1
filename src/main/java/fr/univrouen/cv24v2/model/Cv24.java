@@ -7,19 +7,19 @@ import jakarta.xml.bind.annotation.*;
 
 public class Cv24 {
 
-    @XmlElement(name = "cv24:identite")
+    @XmlElement(name = "identite", namespace = "http://univ.fr/cv24")
     private Identite identite;
 
-    @XmlElement(name = "cv24:objectif")
+    @XmlElement(name = "objectif", namespace = "http://univ.fr/cv24")
     private Objectif objectif;
 
-    @XmlElement(name = "cv24:prof")
+    @XmlElement(name = "prof", namespace = "http://univ.fr/cv24")
     private Prof prof;
 
-    @XmlElement(name = "cv24:competences")
+    @XmlElement(name = "competences", namespace = "http://univ.fr/cv24")
     private Competences competences;
 
-    @XmlElement(name = "cv24:divers")
+    @XmlElement(name = "divers", namespace = "http://univ.fr/cv24")
     private Divers divers;
 
     // Getters and setters
@@ -63,6 +63,7 @@ public class Cv24 {
     public void setDivers(Divers divers) {
         this.divers = divers;
     }
+
 }
 
 

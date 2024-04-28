@@ -9,11 +9,19 @@ import java.io.StringReader;
 
 public class TransformerXmlToCv24 {
     public static Cv24 convertXmlToCv24(String xml) {
-        try {
-            JAXBContext jaxbContext = JAXBContext.newInstance(Cv24.class);
-            Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-            return (Cv24) unmarshaller.unmarshal(new StringReader(xml));
-        } catch (JAXBException e) {
+
+        JAXBContext jaxbContext;
+        try
+        {
+            jaxbContext = JAXBContext.newInstance(Cv24.class);
+            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+            Cv24 cv24 = (Cv24) jaxbUnmarshaller.unmarshal(new StringReader(xml));
+
+            System.out.println(cv24.toString());
+            return cv24;
+        }
+        catch (JAXBException e)
+        {
             throw new RuntimeException("Error converting XML to Cv24", e);
         }
     }

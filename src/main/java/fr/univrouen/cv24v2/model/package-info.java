@@ -1,7 +1,7 @@
 @XmlSchema(
         xmlns = {
+                @XmlNs(prefix = "cv24", namespaceURI = "http://univ.fr/cv24"),
                 @XmlNs(prefix = "xsi", namespaceURI = "http://www.w3.org/2001/XMLSchema-instance"),
-                @XmlNs(prefix = "cv24", namespaceURI = "http://univ.fr/cv24")
         },
         location = "http://univ.fr/cv24 cv24.tp1.xsd"
 )

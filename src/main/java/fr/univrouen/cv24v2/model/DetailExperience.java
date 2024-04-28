@@ -4,17 +4,16 @@ import jakarta.xml.bind.annotation.*;
 
 import java.util.Date;
 
-@XmlRootElement(name = "cv24:detail", namespace = "http://univ.fr/cv24")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class DetailExperience {
 
-    @XmlElement(name = "cv24:datedeb", required = true)
+    @XmlElement(name = "datedeb", required = true, namespace = "http://univ.fr/cv24")
     private Date datedeb;
 
-    @XmlElement(name = "cv24:datefin")
+    @XmlElement(name = "datefin", namespace = "http://univ.fr/cv24")
     private Date datefin;
 
-    @XmlElement(name = "cv24:titre", required = true)
+    @XmlElement(name = "titre", required = true, namespace = "http://univ.fr/cv24")
     private String titre;
 
     // Getters and setters

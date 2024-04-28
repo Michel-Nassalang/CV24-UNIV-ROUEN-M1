@@ -5,19 +5,19 @@ import jakarta.xml.bind.annotation.*;
 
 import java.util.List;
 
-@XmlRootElement(name = "cv24:competences", namespace = "http://univ.fr/cv24")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Competences {
 
-    @XmlElement(name = "cv24:diplome")
+    @XmlElement(name = "diplome", namespace = "http://univ.fr/cv24")
     private List<Diplome> diplome;
 
-    @XmlElement(name = "cv24:certif")
+    @XmlElement(name = "certif", namespace = "http://univ.fr/cv24")
     private List<Certif> certif;
 
-    public List<Diplome> getDiplome() {
-        return diplome;
-    }
+// Getters and setters
+public List<Diplome> getDiplome() {
+    return diplome;
+}
 
     public void setDiplome(List<Diplome> diplome) {
         this.diplome = diplome;
@@ -30,6 +30,5 @@ public class Competences {
     public void setCertif(List<Certif> certif) {
         this.certif = certif;
     }
-// Getters and setters
 }
 

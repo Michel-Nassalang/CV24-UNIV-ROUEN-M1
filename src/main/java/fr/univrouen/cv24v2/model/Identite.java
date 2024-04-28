@@ -2,24 +2,23 @@ package fr.univrouen.cv24v2.model;
 
 import jakarta.xml.bind.annotation.*;
 
-@XmlRootElement(name = "cv24:identite", namespace = "http://univ.fr/cv24")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Identite {
 
 
-    @XmlElement(name = "cv24:genre")
+    @XmlElement(name = "genre", namespace = "http://univ.fr/cv24")
     private String genre;
 
-    @XmlElement(name = "cv24:nom")
+    @XmlElement(name = "nom", namespace = "http://univ.fr/cv24")
     private String nom;
 
-    @XmlElement(name = "cv24:prenom")
+    @XmlElement(name = "prenom", namespace = "http://univ.fr/cv24")
     private String prenom;
 
-    @XmlElement(name = "cv24:tel")
+    @XmlElement(name = "tel", namespace = "http://univ.fr/cv24")
     private String tel;
 
-    @XmlElement(name = "cv24:mel")
+    @XmlElement(name = "mel", namespace = "http://univ.fr/cv24")
     private String mel;
 
     // Getters and setters
