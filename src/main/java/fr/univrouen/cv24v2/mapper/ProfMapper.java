@@ -17,8 +17,13 @@ public class ProfMapper {
         List<DetailExperience> detailList = source.getDetail();
         if (detailList != null) {
             List<DetailExperienceEntity> detailEntityList = detailList.stream()
-                    .map(DetailExperienceMapper::convertToEntity)
+                    .map(detail -> {
+                        DetailExperienceEntity detailEntity = DetailExperienceMapper.convertToEntity(detail);
+                        detailEntity.setProf(target); // Associer le professeur au détail d'expérience
+                        return detailEntity;
+                    })
                     .collect(Collectors.toList());
+
             target.setDetail(detailEntityList);
         }
         return target;

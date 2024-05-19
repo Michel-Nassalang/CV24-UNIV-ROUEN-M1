@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class AutreEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "titre", nullable = false)
@@ -16,7 +16,7 @@ public class AutreEntity {
     @Column(name = "comment")
     private String comment;
 //
-    @ManyToOne(targetEntity = DiversEntity.class)
+    @ManyToOne
     @JoinColumn(name = "divers_id")
     private DiversEntity divers;
 

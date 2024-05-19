@@ -8,7 +8,7 @@ import java.util.List;
 public class DiversEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @OneToMany(mappedBy = "divers", cascade = CascadeType.ALL, orphanRemoval = true)

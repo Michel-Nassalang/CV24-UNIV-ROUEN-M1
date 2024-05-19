@@ -1,5 +1,6 @@
 package fr.univrouen.cv24v2.transformer;
 
+import fr.univrouen.cv24v2.model.CvList;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
@@ -36,6 +37,34 @@ public class TransformerXslt {
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             StringWriter writer = new StringWriter();
             marshaller.marshal(cv, writer);
+            return writer.toString();
+        } catch (JAXBException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static String listCv24toHTML(CvList cvList) throws TransformerException {
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        StreamSource xmlSource = new StreamSource(new StringReader(Objects.requireNonNull(listCvToXmlString(cvList))));
+        StreamSource xsltfile = new StreamSource("src/main/resources/modelCv24/cv24list.xslt");
+
+        Transformer transformer = transformerFactory.newTransformer(xsltfile);
+
+        StringWriter writer = new StringWriter();
+        StreamResult result = new StreamResult(writer);
+        transformer.transform(xmlSource, result);
+
+        return writer.toString();
+    }
+
+    public static String listCvToXmlString(CvList cvList) {
+        try {
+            JAXBContext context = JAXBContext.newInstance(CvList.class);
+            Marshaller marshaller = context.createMarshaller();
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+            StringWriter writer = new StringWriter();
+            marshaller.marshal(cvList, writer);
             return writer.toString();
         } catch (JAXBException e) {
             e.printStackTrace();

@@ -20,7 +20,11 @@ public class DiversMapper {
         List<LangueVivante> lvList = source.getLv();
         if (lvList != null) {
             List<LangueVivanteEntity> lvEntityList = lvList.stream()
-                    .map(LangueVivanteMapper::convertToEntity)
+                    .map(lv -> {
+                        LangueVivanteEntity lvEntity = LangueVivanteMapper.convertToEntity(lv);
+                        lvEntity.setDivers(target); // Associer la divers au langue vivante
+                        return lvEntity;
+                    })
                     .collect(Collectors.toList());
             target.setLv(lvEntityList);
         }
@@ -29,7 +33,11 @@ public class DiversMapper {
         List<Autre> autreList = source.getAutre();
         if (autreList != null) {
             List<AutreEntity> autreEntityList = autreList.stream()
-                    .map(AutreMapper::convertToEntity)
+                    .map(autre -> {
+                        AutreEntity autreEntity = AutreMapper.convertToEntity(autre);
+                        autreEntity.setDivers(target); // Associer la divers à l'autre
+                        return autreEntity;
+                    })
                     .collect(Collectors.toList());
             target.setAutre(autreEntityList);
         }

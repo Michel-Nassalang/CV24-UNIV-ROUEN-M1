@@ -1,0 +1,25 @@
+/* Styles pour centrer le contenu de la page */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    padding: 0;
+}
+
+h1, span, h3 {
+    text-align: center;
+}
+
+/* Style pour l'image */
+img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+

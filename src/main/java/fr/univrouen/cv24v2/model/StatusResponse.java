@@ -10,7 +10,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class StatusResponse {
 
-    @XmlElement(name = "id")
+    @XmlElement(name = "id", nillable = true)
     private int id;
 
     @XmlElement(name = "status")

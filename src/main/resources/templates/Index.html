@@ -3,14 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Cv24 Univ-Rouen</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <style>
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #012B39;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #012B39;
+        }
+    </style>
 </head>
 <body>
 <h1>Service REST XML CV24</h1>
+<span>Version V2 (2024)</span>
 
-<!-- Utilisation de Thymeleaf pour afficher une variable -->
-<h3>Salut, <span th:text="${dev1}"></span>!</h3>
-<h3>Salut, <span th:text="${dev2}"></span>!</h3>
+<h3><span th:text="${dev1}"></span></h3>
+<h3><span th:text="${dev2}"></span></h3>
 
-<img src="/img/univ-rouen.png" alt="Description de votre image">
+<img src="/img/univ-rouen.png" alt="Logo de l'université de Rouen Normandie">
+
+<!-- Bouton pour la page d'aide -->
+<a href="/help" class="button">Aide</a>
+
+<!-- Bouton pour la page de liste des CV -->
+<a href="/cv24/resume" class="button">Liste des CV</a>
 </body>
 </html>

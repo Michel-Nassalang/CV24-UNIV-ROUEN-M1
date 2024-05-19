@@ -8,7 +8,7 @@ import java.util.Date;
 public class DiplomeEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "date", nullable = false)

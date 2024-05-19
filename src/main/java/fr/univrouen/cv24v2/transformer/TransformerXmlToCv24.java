@@ -22,7 +22,7 @@ public class TransformerXmlToCv24 {
         }
         catch (JAXBException e)
         {
-            throw new RuntimeException("Error converting XML to Cv24", e);
+            throw new RuntimeException("Erreur conversion XML vers Cv24", e);
         }
     }
 

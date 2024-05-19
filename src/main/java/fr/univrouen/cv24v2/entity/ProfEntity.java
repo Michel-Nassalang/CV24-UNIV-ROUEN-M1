@@ -8,7 +8,7 @@ import java.util.List;
 public class ProfEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @OneToMany(mappedBy = "prof", cascade = CascadeType.ALL, orphanRemoval = true)

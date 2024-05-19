@@ -9,18 +9,16 @@ public class IndexController {
 
     @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("dev1","Michel Nassalang");
+        model.addAttribute("dev1","NASSALANG Michel");
 
-        model.addAttribute("dev2","Sid Ahmed Brahimi");
+        model.addAttribute("dev2","BRAHIMI Sid Ahmed");
         return "Index";
     }
 
+
     @GetMapping("/help")
     public String help(Model model) {
-        model.addAttribute("dev1","Michel Nassalang");
-
-        model.addAttribute("dev2","Sid Ahmed Brahimi");
-        return "Index";
+        return "help";
     }
 
 

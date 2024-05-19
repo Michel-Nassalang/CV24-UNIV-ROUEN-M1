@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aide - Service REST CV24</title>
+    <link rel="stylesheet" type="text/css" href="/css/help.css"/>
+</head>
+<body>
+
+<header>
+    <h1>Aide - Service REST CV24</h1>
+</header>
+
+<main>
+    <table>
+        <thead>
+        <tr>
+            <th style="width: 20%;">URL</th>
+            <th style="width: 10%;">Méthode</th>
+            <th style="width: 25%;">Opération</th>
+            <th style="width: 45%;">Retour</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>/</td>
+            <td>GET</td>
+            <td>Affiche la page d’accueil</td>
+            <td>Format HTML ou XHTML valide</td>
+        </tr>
+        <tr>
+            <td>/help</td>
+            <td>GET</td>
+            <td>Affiche la page contenant les informations d’aide</td>
+            <td>Format HTML ou XHTML valide</td>
+        </tr>
+        <tr>
+            <td>/cv24/resume/xml</td>
+            <td>GET</td>
+            <td>Affiche la liste des CV stockés</td>
+            <td>Flux XML</td>
+        </tr>
+        <tr>
+            <td>/cv24/resume</td>
+            <td>GET</td>
+            <td>Affiche la liste des CV stockés</td>
+            <td>Page HTML (ou XHTML)</td>
+        </tr>
+        <tr>
+            <td>/cv24/xml?id=&lt;id&gt;</td>
+            <td>GET</td>
+            <td>Affiche le contenu complet du CV dont l’identifiant est transmis en paramètre.</td>
+            <td>Flux XML conforme au schéma xsd cv24, comprenant un seul CV.</td>
+        </tr>
+        <tr>
+            <td>/cv24/html?id=&lt;id&gt;</td>
+            <td>GET</td>
+            <td>Affiche le contenu complet du CV dont l’identifiant est &lt;id&gt;</td>
+            <td>Page HTML (ou XHTML)</td>
+        </tr>
+        <tr>
+            <td>/cv24/insert</td>
+            <td>POST</td>
+            <td>Flux XML respectant la spécification cv24 à ajouter, conforme au schéma xsd.</td>
+            <td>Le flux XML retourné contient les informations suivantes : - id → numéro d’identifiant attribué à la spécification soumise - status → INSERTED.  <br> En cas d’échec de l’opération, les informations de statut seront retournées - status → ERROR - detail → INVALID | DUPLICATED.</td>
+        </tr>
+        <tr>
+            <td>/cv24/delete/&lt;id&gt;</td>
+            <td>DELETE</td>
+            <td>Valeur de l'identifiant &lt;id&gt;</td>
+            <td>Suppression du CV dont l’identifiant est &lt;id&gt;</td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+
+</body>
+</html>

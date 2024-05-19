@@ -17,7 +17,7 @@ import java.io.StringReader;
 
 public class ValidatorCv24 {
 
-    public static Boolean validateCv24(String xml) throws ParserConfigurationException {
+    public static String validateCv24(String xml) throws ParserConfigurationException {
         boolean hasError = false;
         try {
             // Chargement du fichier XSD
@@ -37,11 +37,12 @@ public class ValidatorCv24 {
             validator.validate(source);
         } catch (SAXParseException e) {
             hasError = true;
-            System.out.println("Erreur SAX lors de la validation : " + e.getMessage());
+            System.out.println("Erreur SAX de validation de flux: " + e.getMessage());
+            return "SAX de validation de flux - " + e.getMessage();
         } catch (SAXException | IOException e) {
             hasError = true;
-            e.printStackTrace();
+            return "SAX de validation de flux: " + e.getMessage();
         }
-        return !hasError;
+        return "valid";
     }
 }

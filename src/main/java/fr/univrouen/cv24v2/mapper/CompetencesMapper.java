@@ -19,7 +19,11 @@ public class CompetencesMapper {
         List<Diplome> diplomeList = source.getDiplome();
         if (diplomeList != null) {
             List<DiplomeEntity> diplomeEntityList = diplomeList.stream()
-                    .map(DiplomeMapper::convertToEntity)
+                    .map(diplome -> {
+                        DiplomeEntity diplomeEntity = DiplomeMapper.convertToEntity(diplome);
+                        diplomeEntity.setCompetences(target); // Associer les compétences au diplôme
+                        return diplomeEntity;
+                    })
                     .collect(Collectors.toList());
             target.setDiplome(diplomeEntityList);
         }
@@ -28,7 +32,11 @@ public class CompetencesMapper {
         List<Certif> certifList = source.getCertif();
         if (certifList != null) {
             List<CertifEntity> certifEntityList = certifList.stream()
-                    .map(CertifMapper::convertToEntity)
+                    .map(certif -> {
+                        CertifEntity certifEntity = CertifMapper.convertToEntity(certif);
+                        certifEntity.setCompetences(target); // Associer les compétences à la certification
+                        return certifEntity;
+                    })
                     .collect(Collectors.toList());
             target.setCertif(certifEntityList);
         }
