@@ -60,7 +60,6 @@ public class ErrorController {
     private ErrorResponse createErrorResponse(HttpStatus status, String message) {
         return new ErrorResponse(status.value(), message);
     }
-
     // Classe interne pour structurer les réponses d'erreur
     public static class ErrorResponse {
         private int status;
