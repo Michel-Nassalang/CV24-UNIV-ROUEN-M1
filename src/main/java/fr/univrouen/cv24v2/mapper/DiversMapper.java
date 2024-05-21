@@ -10,9 +10,16 @@ import fr.univrouen.cv24v2.model.LangueVivante;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
+/**
+ * Mapper utilisé pour convertir des objets entre les entités DiversEntity et Divers.
+ */
 public class DiversMapper {
-
+    /**
+     * Convertit un objet Divers en DiversEntity.
+     *
+     * @param source l'objet Divers source à convertir.
+     * @return l'objet DiversEntity converti.
+     */
     public static DiversEntity convertToEntity(Divers source) {
         DiversEntity target = new DiversEntity();
 
@@ -43,7 +50,12 @@ public class DiversMapper {
         }
         return target;
     }
-
+    /**
+     * Convertit un objet DiversEntity en Divers.
+     *
+     * @param source l'objet DiversEntity source à convertir.
+     * @return l'objet Divers converti.
+     */
     public static Divers convertToXml(DiversEntity source) {
         Divers target = new Divers();
 

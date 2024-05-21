@@ -6,8 +6,17 @@ import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Unmarshaller;
 
 import java.io.StringReader;
-
+/**
+ * Cette classe fournit une méthode statique pour convertir une représentation XML en un objet Cv24.
+ */
 public class TransformerXmlToCv24 {
+    /**
+     * Convertit une représentation XML en un objet Cv24.
+     *
+     * @param xml La chaîne XML à convertir en objet Cv24.
+     * @return L'objet Cv24 résultant de la conversion.
+     * @throws RuntimeException Si une erreur se produit lors de la conversion.
+     */
     public static Cv24 convertXmlToCv24(String xml) {
 
         JAXBContext jaxbContext;

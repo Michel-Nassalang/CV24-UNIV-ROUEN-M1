@@ -1,0 +1,10 @@
+fr.univrouen.cv24v2
+fr.univrouen.cv24v2.controller
+fr.univrouen.cv24v2.entity
+fr.univrouen.cv24v2.exception
+fr.univrouen.cv24v2.mapper
+fr.univrouen.cv24v2.model
+fr.univrouen.cv24v2.repository
+fr.univrouen.cv24v2.service
+fr.univrouen.cv24v2.transformer
+fr.univrouen.cv24v2.validator

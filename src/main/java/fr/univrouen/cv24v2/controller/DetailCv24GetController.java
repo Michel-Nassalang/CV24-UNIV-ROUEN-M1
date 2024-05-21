@@ -12,6 +12,12 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.xml.transform.TransformerException;
 
+/**
+ * Contrôleur REST pour gérer les requêtes de détails de CV.
+ * <p>
+ * Ce contrôleur fournit des endpoints pour obtenir les détails d'un CV en XML ou en HTML.
+ * </p>
+ */
 @RestController
 @RequestMapping(path="/cv24")
 public class DetailCv24GetController {
@@ -19,6 +25,15 @@ public class DetailCv24GetController {
     @Autowired
     private Cv24Repository cv24Repository;
 
+    /**
+     * Endpoint pour obtenir les détails d'un CV en format XML.
+     * <p>
+     * Ce endpoint retourne les détails d'un CV en format XML correspondant à l'ID fourni.
+     * </p>
+     *
+     * @param id L'ID du CV dont les détails sont à récupérer.
+     * @return Les détails du CV en format XML ou un statut d'erreur si le CV n'est pas trouvé.
+     */
     @RequestMapping(value="/xml", produces= MediaType.APPLICATION_XML_VALUE)
     public @ResponseBody Object detailxml(@RequestParam int id) {
             Cv24Entity cv24Entity = cv24Repository.findById(id);
@@ -27,6 +42,16 @@ public class DetailCv24GetController {
         }else return new StatusResponse(id, "ERROR");
     }
 
+    /**
+     * Endpoint pour obtenir les détails d'un CV en format HTML.
+     * <p>
+     * Ce endpoint retourne les détails d'un CV en format HTML correspondant à l'ID fourni.
+     * </p>
+     *
+     * @param id L'ID du CV dont les détails sont à récupérer.
+     * @return Les détails du CV en format HTML ou un statut d'erreur si le CV n'est pas trouvé.
+     * @throws TransformerException Si une erreur se produit lors de la transformation en HTML.
+     */
     @RequestMapping(value="/html", produces= MediaType.TEXT_HTML_VALUE)
     public @ResponseBody Object detailhtml(@RequestParam int id) throws TransformerException {
         Cv24Entity cv24Entity = cv24Repository.findById(id);

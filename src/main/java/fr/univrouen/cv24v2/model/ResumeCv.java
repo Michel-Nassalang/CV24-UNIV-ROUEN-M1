@@ -6,21 +6,42 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 
+/**
+ * Modèle pour représenter un résumé d'un CV dans le système.
+ * <p>
+ * Cette classe est utilisée pour représenter des données dans le format XML.
+ * </p>
+ *
+ * @since 2024-05-21
+ */
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ResumeCv {
-
+    /**
+     * L'identifiant du CV.
+     */
     @XmlElement(name = "id", namespace = "http://univ.fr/cv24")
     private Integer id;
-
+    /**
+     * L'identité du candidat.
+     */
     @XmlElement(name = "identite", namespace = "http://univ.fr/cv24")
     private String identite;
-
+    /**
+     * L'objectif du candidat.
+     */
     @XmlElement(name = "objectif", namespace = "http://univ.fr/cv24")
     private String objectif;
-
+    /**
+     * Le diplôme le plus élevé du candidat.
+     */
     @XmlElement(name = "diplome", namespace = "http://univ.fr/cv24")
     private String diplome;
 
+    /**
+     * Constructeur prenant une entité Cv24Entity pour initialiser les champs du résumé du CV.
+     *
+     * @param entity l'entité Cv24Entity à partir de laquelle créer le résumé du CV.
+     */
     public ResumeCv(Cv24Entity entity) {
 
         this.id = entity.getId();
@@ -28,7 +49,12 @@ public class ResumeCv {
         this.objectif = entity.getObjectif().getValue();
         this.diplome = getHighestDiploma(entity);
     }
-
+    /**
+     * Obtient le diplôme le plus élevé du candidat à partir de l'entité Cv24Entity.
+     *
+     * @param entity l'entité Cv24Entity représentant le CV du candidat.
+     * @return le titre du diplôme le plus élevé.
+     */
     private String getHighestDiploma(Cv24Entity entity) {
         String highestDiploma = "";
         int highestlevel = 0;

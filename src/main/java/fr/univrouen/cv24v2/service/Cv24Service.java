@@ -16,6 +16,9 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.xml.parsers.ParserConfigurationException;
 import java.util.Optional;
 
+/**
+ * Service pour gérer les opérations sur les CV.
+ */
 @Service
 @Transactional(
         isolation = Isolation.READ_COMMITTED,
@@ -26,6 +29,13 @@ public class Cv24Service {
     @Autowired
     private Cv24Repository cvRepository;
 
+    /**
+     * Insère un CV dans la base de données.
+     *
+     * @param flux le flux XML représentant le CV.
+     * @return un objet StatusResponse indiquant le statut de l'opération.
+     * @throws ParserConfigurationException si une erreur de configuration du parseur XML se produit.
+     */
     @Transactional
     public Object insertCv(String flux) throws ParserConfigurationException {
 
@@ -59,7 +69,12 @@ public class Cv24Service {
             return new StatusResponse("ERROR", "INVALID" + validation);
         }
     }
-
+    /**
+     * Supprime un CV de la base de données.
+     *
+     * @param id l'identifiant du CV à supprimer.
+     * @return un objet StatusResponse indiquant le statut de l'opération.
+     */
     public Object deleteCv(int id){
 
         // Vérification de l'existence du cv et suppression

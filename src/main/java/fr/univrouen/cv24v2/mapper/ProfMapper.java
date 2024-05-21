@@ -7,9 +7,16 @@ import fr.univrouen.cv24v2.model.Prof;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
+/**
+ * Mapper utilisé pour convertir des objets entre les entités ProfEntity et Prof.
+ */
 public class ProfMapper {
-
+    /**
+     * Convertit un objet Prof en ProfEntity.
+     *
+     * @param source l'objet Prof source à convertir.
+     * @return l'objet ProfEntity converti.
+     */
     public static ProfEntity convertToEntity(Prof source) {
         ProfEntity target = new ProfEntity();
 
@@ -28,7 +35,12 @@ public class ProfMapper {
         }
         return target;
     }
-
+    /**
+     * Convertit un objet ProfEntity en Prof.
+     *
+     * @param source l'objet ProfEntity source à convertir.
+     * @return l'objet Prof converti.
+     */
     public static Prof convertToXml(ProfEntity source) {
         Prof target = new Prof();
 
@@ -42,6 +54,5 @@ public class ProfMapper {
         }
         return target;
     }
-
 
 }

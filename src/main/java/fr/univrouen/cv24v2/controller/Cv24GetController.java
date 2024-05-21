@@ -20,6 +20,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
+/**
+ * Contrôleur REST pour gérer les requêtes relatives aux CV.
+ * <p>
+ * Ce contrôleur fournit des endpoints pour obtenir des résumés de CV en format XML ou HTML.
+ * </p>
+ */
 @RestController
 @RequestMapping(path="/cv24")
 public class Cv24GetController {
@@ -27,10 +33,14 @@ public class Cv24GetController {
     @Autowired
     private Cv24Repository cv24Repository;
 
-
-
-
-
+    /**
+     * Endpoint pour obtenir un résumé des CV au format XML.
+     * <p>
+     * Ce endpoint récupère tous les CV, les transforme en résumés, et renvoie la liste en format XML.
+     * </p>
+     *
+     * @return Un String contenant les résumés des CV en format XML.
+     */
     @GetMapping(value = "/resume/xml", produces = MediaType.APPLICATION_XML_VALUE)
     public @ResponseBody String resumexml() {
         Iterable<Cv24Entity> cv24Entities = cv24Repository.findAll();
@@ -42,6 +52,16 @@ public class Cv24GetController {
         return TransformerListCVToXML.convertToXml(listxml);
     }
 
+    /**
+     * Endpoint pour obtenir un résumé des CV au format HTML.
+     * <p>
+     * Ce endpoint récupère tous les CV, les transforme en résumés, et renvoie la liste en format HTML.
+     * </p>
+     *
+     * @param model Le modèle pour la vue.
+     * @return Un objet contenant les résumés des CV en format HTML.
+     * @throws TransformerException Si une erreur survient lors de la transformation en HTML.
+     */
     @GetMapping(value="/resume", produces = MediaType.TEXT_HTML_VALUE)
     public @ResponseBody Object resumehtml(Model model) throws TransformerException {
         Iterable<Cv24Entity> cv24Entities = cv24Repository.findAll();

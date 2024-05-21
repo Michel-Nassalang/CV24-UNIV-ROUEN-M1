@@ -9,9 +9,21 @@ import fr.univrouen.cv24v2.model.Diplome;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
+/**
+ * Mapper utilisé pour convertir des objets entre les entités CompetencesEntity et les modèles Competences.
+ * <p>
+ * Cette classe fournit des méthodes statiques pour convertir un objet Competences en CompetencesEntity et vice versa.
+ * </p>
+ *
+ * @since 2024-05-21
+ */
 public class CompetencesMapper {
-
+    /**
+     * Convertit un objet Competences en CompetencesEntity.
+     *
+     * @param source l'objet Competences source à convertir.
+     * @return l'objet CompetencesEntity converti.
+     */
     public static CompetencesEntity convertToEntity(Competences source) {
         CompetencesEntity target = new CompetencesEntity();
 
@@ -42,7 +54,12 @@ public class CompetencesMapper {
         }
         return target;
     }
-
+    /**
+     * Convertit un objet CompetencesEntity en Competences.
+     *
+     * @param source l'objet CompetencesEntity source à convertir.
+     * @return l'objet Competences converti.
+     */
     public static Competences convertToXml(CompetencesEntity source) {
         Competences target = new Competences();
 

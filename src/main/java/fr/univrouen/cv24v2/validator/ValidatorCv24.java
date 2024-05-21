@@ -14,9 +14,17 @@ import javax.xml.validation.Validator;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
-
+/**
+ * Cette classe fournit des méthodes pour valider un flux XML conforme à un schéma XSD.
+ */
 public class ValidatorCv24 {
-
+    /**
+     * Valide un flux XML par rapport à un schéma XSD.
+     *
+     * @param xml Le flux XML à valider.
+     * @return Une chaîne indiquant si le flux est valide ou contient des erreurs.
+     * @throws ParserConfigurationException Si une erreur de configuration du parser se produit.
+     */
     public static String validateCv24(String xml) throws ParserConfigurationException {
         boolean hasError = false;
         try {
