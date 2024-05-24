@@ -1,0 +1,283 @@
+{
+	"info": {
+		"_postman_id": "d4bff64f-0e4d-4e8c-8340-560be94d9a02",
+		"name": "cv24v2 - distant",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32025871"
+	},
+	"item": [
+		{
+			"name": "Détail d’un CV - Format XML",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/cv24/xml?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cv24",
+						"xml"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "Affiche le contenu complet du CV dont l’identifiant est transmis en paramètre.\nFlux XML conforme au schéma xsd cv24, comprenant un seul CV"
+			},
+			"response": []
+		},
+		{
+			"name": "Détail d’un CV - Format HTML",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cv24/html?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cv24",
+						"html"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "Affiche la liste des CV stockés\nPage HTML"
+			},
+			"response": []
+		},
+		{
+			"name": "Ajout d’un CV dans la base",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<cv24:cv24 xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:cv24=\"http://univ.fr/cv24\">\n  <cv24:identite>\n    <cv24:genre>M.</cv24:genre>\n    <cv24:nom>NASSALANG</cv24:nom>\n    <cv24:prenom>Michel</cv24:prenom>\n    <cv24:tel>+33 1 23 45 67 89</cv24:tel>\n    <cv24:mel>nassalang.michel@univ-rouen.fr</cv24:mel>\n  </cv24:identite>\n  <cv24:objectif statut=\"stage\">Developpeur web</cv24:objectif>\n  <cv24:prof>\n    <cv24:detail>\n      <cv24:datedeb>2023-06-05</cv24:datedeb>\n      <cv24:datefin>2023-08-30</cv24:datefin>\n      <cv24:titre>Developpeur mobile et backend</cv24:titre>\n    </cv24:detail>\n    <cv24:detail>\n      <cv24:datedeb>2021-06-02</cv24:datedeb>\n      <cv24:titre>Developpeur Backend</cv24:titre>\n    </cv24:detail>\n    <cv24:detail>\n      <cv24:datedeb>2020-07-03</cv24:datedeb>\n      <cv24:datefin>2020-08-27</cv24:datefin>\n      <cv24:titre>Developpeur frontend</cv24:titre>\n    </cv24:detail>\n  </cv24:prof>\n  <cv24:competences>\n    <cv24:diplome niveau=\"5\">\n      <cv24:date>2021-02-01</cv24:date>\n      <cv24:institut>Institut polytechnique</cv24:institut>\n      <cv24:titre>Classes preparatoires</cv24:titre>\n    </cv24:diplome>\n    <cv24:diplome niveau=\"7\">\n      <cv24:date>2025-06-05</cv24:date>\n      <cv24:institut>universite de Rouen</cv24:institut>\n      <cv24:titre>Master genie logiciel</cv24:titre>\n    </cv24:diplome>\n    <cv24:diplome niveau=\"4\">\n      <cv24:date>2018-07-15</cv24:date>\n      <cv24:institut>Lycee Demba Diop</cv24:institut>\n      <cv24:titre>Baccalaureat</cv24:titre>\n    </cv24:diplome>\n    <cv24:diplome niveau=\"7\">\n      <cv24:date>2023-06-05</cv24:date>\n      <cv24:institut>Institut polytechnique</cv24:institut>\n      <cv24:titre>Cycle ingenieur</cv24:titre>\n    </cv24:diplome>\n    <cv24:certif>\n      <cv24:datedeb>2022-12-23</cv24:datedeb>\n      <cv24:datefin>2022-12-19</cv24:datefin>\n      <cv24:titre>Leadership et Collaboration</cv24:titre>\n    </cv24:certif>\n    <cv24:certif>\n      <cv24:datedeb>2023-05-12</cv24:datedeb>\n      <cv24:datefin>2023-05-16</cv24:datefin>\n      <cv24:titre>Entrepreneuriat</cv24:titre>\n    </cv24:certif>\n    <cv24:certif>\n      <cv24:datedeb>2023-05-12</cv24:datedeb>\n      <cv24:titre>Cybersecurity Essentiels</cv24:titre>\n    </cv24:certif>\n  </cv24:competences>\n  <cv24:divers>\n    <cv24:lv cert=\"MAT\" lang=\"fr\"/>\n    <cv24:lv cert=\"TOEIC\" lang=\"es\" nivs=\"B1\"/>\n    <cv24:lv cert=\"CLES\" lang=\"en\" nivi=\"106\"/>\n    <cv24:autre comment=\"B\" titre=\"Permis de Conduire\"/>\n  </cv24:divers>\n</cv24:cv24>\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/cv24/insert",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cv24",
+						"insert"
+					]
+				},
+				"description": "Flux XML respectant la spécification cv24 à ajouter, conforme au schéma xsd.\nLe flux reçu est validé par le schéma XSD de définition cv24"
+			},
+			"response": []
+		},
+		{
+			"name": "Ajout d’un CV minimal dans la base",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<cv24:cv24 xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:cv24=\"http://univ.fr/cv24\">\n  <cv24:identite>\n    <cv24:genre>M.</cv24:genre>\n    <cv24:nom>NASSALANG</cv24:nom>\n    <cv24:prenom>Michel</cv24:prenom>\n    <cv24:tel>+33 1 23 45 67 89</cv24:tel>\n    <cv24:mel>nassalang.michel@univ-rouen.fr</cv24:mel>\n  </cv24:identite>\n  <cv24:objectif statut=\"stage\">Developpeur web</cv24:objectif>\n  <cv24:prof>\n    <cv24:detail>\n      <cv24:datedeb>2023-06-05</cv24:datedeb>\n      <cv24:datefin>2023-08-30</cv24:datefin>\n      <cv24:titre>Developpeur mobile et backend</cv24:titre>\n    </cv24:detail>\n    <cv24:detail>\n      <cv24:datedeb>2021-06-02</cv24:datedeb>\n      <cv24:titre>Developpeur Backend</cv24:titre>\n    </cv24:detail>\n    <cv24:detail>\n      <cv24:datedeb>2020-07-03</cv24:datedeb>\n      <cv24:datefin>2020-08-27</cv24:datefin>\n      <cv24:titre>Developpeur frontend</cv24:titre>\n    </cv24:detail>\n  </cv24:prof>\n  <cv24:competences>\n    <cv24:diplome niveau=\"5\">\n      <cv24:date>2021-02-01</cv24:date>\n      <cv24:institut>Institut polytechnique</cv24:institut>\n      <cv24:titre>Classes preparatoires</cv24:titre>\n    </cv24:diplome>\n    <cv24:diplome niveau=\"7\">\n      <cv24:date>2025-06-05</cv24:date>\n      <cv24:institut>universite de Rouen</cv24:institut>\n      <cv24:titre>Master genie logiciel</cv24:titre>\n    </cv24:diplome>\n    <cv24:diplome niveau=\"4\">\n      <cv24:date>2018-07-15</cv24:date>\n      <cv24:institut>Lycee Demba Diop</cv24:institut>\n      <cv24:titre>Baccalaureat</cv24:titre>\n    </cv24:diplome>\n    <cv24:diplome niveau=\"7\">\n      <cv24:date>2023-06-05</cv24:date>\n      <cv24:institut>Institut polytechnique</cv24:institut>\n      <cv24:titre>Cycle ingenieur</cv24:titre>\n    </cv24:diplome>\n    <cv24:certif>\n      <cv24:datedeb>2022-12-23</cv24:datedeb>\n      <cv24:datefin>2022-12-19</cv24:datefin>\n      <cv24:titre>Leadership et Collaboration</cv24:titre>\n    </cv24:certif>\n    <cv24:certif>\n      <cv24:datedeb>2023-05-12</cv24:datedeb>\n      <cv24:datefin>2023-05-16</cv24:datefin>\n      <cv24:titre>Entrepreneuriat</cv24:titre>\n    </cv24:certif>\n    <cv24:certif>\n      <cv24:datedeb>2023-05-12</cv24:datedeb>\n      <cv24:titre>Cybersecurity Essentiels</cv24:titre>\n    </cv24:certif>\n  </cv24:competences>\n  <cv24:divers>\n    <cv24:lv cert=\"MAT\" lang=\"fr\"/>\n    <cv24:lv cert=\"TOEIC\" lang=\"es\" nivs=\"B1\"/>\n    <cv24:lv cert=\"CLES\" lang=\"en\" nivi=\"106\"/>\n    <cv24:autre comment=\"B\" titre=\"Permis de Conduire\"/>\n  </cv24:divers>\n</cv24:cv24>\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/cv24/insert",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cv24",
+						"insert"
+					]
+				},
+				"description": "Flux XML respectant la spécification cv24 à ajouter, conforme au schéma xsd.\nLe flux reçu est validé par le schéma XSD de définition cv24"
+			},
+			"response": []
+		},
+		{
+			"name": "Ajout d’un mauvais CV dans la base",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<cv24:cv24 xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:cv24=\"http://univ.fr/cv24\">\n  <cv24:identite>\n    <cv24:genre>Mme</cv24:genre>\n    <cv24:nom>DIOUF</cv24:nom>\n    <cv24:prenom>Kate Elisabeth</cv24:prenom>\n    <cv24:tel>+33 6 98 76 54 32</cv24:tel>\n    <cv24:mel>diouf.kate-elisabeth@gmail.com</cv24:mel>\n  </cv24:identite>\n  <cv24:objectif statut=\"emploi\">Directrice Commerciale</cv24:objectif>\n  <cv24:prof>\n    <cv24:detail>\n      <cv24:datedeb>2020-01-01</cv24:datedeb>\n      <cv24:titre>Responsable Commercial</cv24:titre>\n      <cv24:institut>Entreprise Actuelle</cv24:institut>\n      <cv24:description>Gestion d'une equipe de 10 commerciaux et developpement des ventes sur la région Île-de-France.</cv24:description>\n    </cv24:detail>\n    <cv24:detail>\n      <cv24:datedeb>2015-06-01</cv24:datedeb>\n      <cv24:datefin>2019-12-31</cv24:datefin>\n      <cv24:titre>Commercial Terrain</cv24:titre>\n      <cv24:institut>Ancienne Entreprise</cv24:institut>\n      <cv24:description>Prospection et vente de solutions logicielles auprès des PME.</cv24:description>\n    </cv24:detail>\n  </cv24:prof>\n  <cv24:competences>\n    <cv24:diplome niveau=\"5\">\n      <cv24:date>2014-06-30</cv24:date>\n      <cv24:institut>Universite de Nantes</cv24:institut>\n      <cv24:titre>BTS Negociation et Relation Client</cv24:titre>\n    </cv24:diplome>\n    <cv24:certif>\n      <cv24:datedeb>2018-03-01</cv24:datedeb>\n      <cv24:titre>Certification Management Commercial</cv24:titre>\n    </cv24:certif>\n  </cv24:competences>\n  <cv24:divers>\n    <cv24:lv cert=\"TOEIC\" lang=\"en\" nivs=\"C1\"/>\n    <cv24:lv cert=\"DELF\" lang=\"fr\" nivs=\"C2\"/>\n    <cv24:autre titre=\"Permis A\"/>\n  </cv24:divers>\n</cv24:cv24>\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/cv24/insert",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cv24",
+						"insert"
+					]
+				},
+				"description": "Flux XML respectant la spécification cv24 à ajouter, conforme au schéma xsd.\nLe flux reçu est validé par le schéma XSD de définition cv24"
+			},
+			"response": []
+		},
+		{
+			"name": "Ajout d’un duplucated CV dans la base 2nd",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<cv24:cv24 xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:cv24=\"http://univ.fr/cv24\">\n  <cv24:identite>\n    <cv24:genre>M.</cv24:genre>\n    <cv24:nom>NASSALANG</cv24:nom>\n    <cv24:prenom>Michel</cv24:prenom>\n    <cv24:tel>+33 1 23 45 67 89</cv24:tel>\n    <cv24:mel>nassalang.michel@univ-rouen.fr</cv24:mel>\n  </cv24:identite>\n  <cv24:objectif statut=\"stage\">Developpeur web</cv24:objectif>\n  <cv24:prof>\n    <cv24:detail>\n      <cv24:datedeb>2023-06-05</cv24:datedeb>\n      <cv24:datefin>2023-08-30</cv24:datefin>\n      <cv24:titre>Developpeur mobile et backend</cv24:titre>\n    </cv24:detail>\n    <cv24:detail>\n      <cv24:datedeb>2021-06-02</cv24:datedeb>\n      <cv24:titre>Developpeur Backend</cv24:titre>\n    </cv24:detail>\n    <cv24:detail>\n      <cv24:datedeb>2020-07-03</cv24:datedeb>\n      <cv24:datefin>2020-08-27</cv24:datefin>\n      <cv24:titre>Developpeur frontend</cv24:titre>\n    </cv24:detail>\n  </cv24:prof>\n  <cv24:competences>\n    <cv24:diplome niveau=\"5\">\n      <cv24:date>2021-02-01</cv24:date>\n      <cv24:institut>Institut polytechnique</cv24:institut>\n      <cv24:titre>Classes preparatoires</cv24:titre>\n    </cv24:diplome>\n    <cv24:diplome niveau=\"7\">\n      <cv24:date>2025-06-05</cv24:date>\n      <cv24:institut>universite de Rouen</cv24:institut>\n      <cv24:titre>Master genie logiciel</cv24:titre>\n    </cv24:diplome>\n    <cv24:diplome niveau=\"4\">\n      <cv24:date>2018-07-15</cv24:date>\n      <cv24:institut>Lycee Demba Diop</cv24:institut>\n      <cv24:titre>Baccalaureat</cv24:titre>\n    </cv24:diplome>\n    <cv24:diplome niveau=\"7\">\n      <cv24:date>2023-06-05</cv24:date>\n      <cv24:institut>Institut polytechnique</cv24:institut>\n      <cv24:titre>Cycle ingenieur</cv24:titre>\n    </cv24:diplome>\n    <cv24:certif>\n      <cv24:datedeb>2022-12-23</cv24:datedeb>\n      <cv24:datefin>2022-12-19</cv24:datefin>\n      <cv24:titre>Leadership et Collaboration</cv24:titre>\n    </cv24:certif>\n    <cv24:certif>\n      <cv24:datedeb>2023-05-12</cv24:datedeb>\n      <cv24:datefin>2023-05-16</cv24:datefin>\n      <cv24:titre>Entrepreneuriat</cv24:titre>\n    </cv24:certif>\n    <cv24:certif>\n      <cv24:datedeb>2023-05-12</cv24:datedeb>\n      <cv24:titre>Cybersecurity Essentiels</cv24:titre>\n    </cv24:certif>\n  </cv24:competences>\n  <cv24:divers>\n    <cv24:lv cert=\"MAT\" lang=\"fr\"/>\n    <cv24:lv cert=\"TOEIC\" lang=\"es\" nivs=\"B1\"/>\n    <cv24:lv cert=\"CLES\" lang=\"en\" nivi=\"106\"/>\n    <cv24:autre comment=\"B\" titre=\"Permis de Conduire\"/>\n  </cv24:divers>\n</cv24:cv24>\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/cv24/insert",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cv24",
+						"insert"
+					]
+				},
+				"description": "Flux XML respectant la spécification cv24 à ajouter, conforme au schéma xsd.\nLe flux reçu est validé par le schéma XSD de définition cv24"
+			},
+			"response": []
+		},
+		{
+			"name": "Suppression d’un CV",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cv24/delete/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cv24",
+						"delete",
+						"1"
+					]
+				},
+				"description": "Suppression du CV dont l’identifiant est <id>"
+			},
+			"response": []
+		},
+		{
+			"name": "Liste des CV - Format XML",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Liste des CV - Format HTML",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Index",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "help",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/help",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"help"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Requete inconnu Gestion d'erreur",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Recherche: Version de base",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "localcv24v2",
+			"value": "http://localhost:8080"
+		}
+	]
+}
