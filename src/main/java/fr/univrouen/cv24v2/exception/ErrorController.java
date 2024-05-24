@@ -1,5 +1,6 @@
 package fr.univrouen.cv24v2.exception;
 
+import fr.univrouen.cv24v2.model.StatusResponse;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,8 +29,11 @@ public class ErrorController {
      * @return Un message d'erreur indiquant qu'une page n'a pas été trouvée.
      */
     @ExceptionHandler(ChangeSetPersister.NotFoundException.class)
-    public String handleNotFoundException(ChangeSetPersister.NotFoundException ex) {
-        return "Erreur: Page non trouvée: Une erreur est survenue";
+    public ResponseEntity<StatusResponse>  handleNotFoundException(ChangeSetPersister.NotFoundException ex) {
+        StatusResponse response = new StatusResponse(String.valueOf(HttpStatus.NOT_FOUND), "Erreur: Page non trouvée: Une erreur est survenue");
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .header("Content-Type", "application/xml")
+                .body(response);
     }
 
     /**
@@ -43,48 +47,39 @@ public class ErrorController {
      * @return Un message d'erreur générique avec le message de l'exception.
      */
     @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<Object> handleResourceNotFoundException(ResourceNotFoundException ex) {
-        return new ResponseEntity<>(createErrorResponse(HttpStatus.NOT_FOUND, ex.getMessage()), HttpStatus.NOT_FOUND);
+    public ResponseEntity<StatusResponse>  handleResourceNotFoundException(ResourceNotFoundException ex) {
+        StatusResponse response = createErrorResponse(HttpStatus.NOT_FOUND, ex.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .header("Content-Type", "application/xml")
+                .body(response);
     }
 
     @ExceptionHandler(ResourceAlreadyExistException.class)
-    public ResponseEntity<Object> handleResourceAlreadyExistException(ResourceAlreadyExistException ex) {
-        return new ResponseEntity<>(createErrorResponse(HttpStatus.CONFLICT, ex.getMessage()), HttpStatus.CONFLICT);
+    public ResponseEntity<StatusResponse>  handleResourceAlreadyExistException(ResourceAlreadyExistException ex) {
+        StatusResponse response = createErrorResponse(HttpStatus.CONFLICT, ex.getMessage());
+        return ResponseEntity.status(HttpStatus.CONFLICT)
+                .header("Content-Type", "application/xml")
+                .body(response);
+    }
+
+    @ExceptionHandler(InvalidSearchCriteriaException.class)
+    public ResponseEntity<StatusResponse>  handleInvalidSearchCriteriaException(InvalidSearchCriteriaException ex) {
+        StatusResponse response = createErrorResponse(HttpStatus.BAD_REQUEST, ex.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .header("Content-Type", "application/xml")
+                .body(response);
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<Object> handleAllExceptions(Exception ex, WebRequest request) {
-        return new ResponseEntity<>(createErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR, "Erreur interne du serveur : " + ex.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+    public ResponseEntity<StatusResponse> handleAllExceptions(Exception ex, WebRequest request) {
+        StatusResponse response = createErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR, "Erreur interne du serveur : " + ex.getMessage());
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .header("Content-Type", "application/xml")
+                .body(response);
     }
 
-    private ErrorResponse createErrorResponse(HttpStatus status, String message) {
-        return new ErrorResponse(status.value(), message);
-    }
-    // Classe interne pour structurer les réponses d'erreur
-    public static class ErrorResponse {
-        private int status;
-        private String message;
-
-        public ErrorResponse(int status, String message) {
-            this.status = status;
-            this.message = message;
-        }
-
-        public int getStatus() {
-            return status;
-        }
-
-        public void setStatus(int status) {
-            this.status = status;
-        }
-
-        public String getMessage() {
-            return message;
-        }
-
-        public void setMessage(String message) {
-            this.message = message;
-        }
+    private StatusResponse createErrorResponse(HttpStatus status, String message) {
+        return new StatusResponse(String.valueOf(status.value()), message);
     }
 
 

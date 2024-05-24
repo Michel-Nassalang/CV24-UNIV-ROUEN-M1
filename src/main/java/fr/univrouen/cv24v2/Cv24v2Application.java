@@ -23,6 +23,7 @@ public class Cv24v2Application {
      */
     public static void main(String[] args) {
 
+        // Port par défaut 8080
         // Décommenter la ligne suivante pour changer le port du serveur
         // System.getProperties().put("server.port", 8100);
         SpringApplication.run(Cv24v2Application.class, args);

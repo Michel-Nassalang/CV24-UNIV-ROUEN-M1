@@ -3,6 +3,7 @@ package fr.univrouen.cv24v2.repository;
 import fr.univrouen.cv24v2.entity.Cv24Entity;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 import java.util.Optional;
 
@@ -31,4 +32,10 @@ public interface Cv24Repository extends CrudRepository<Cv24Entity, Integer> {
      */
     @Query("SELECT c FROM Cv24Entity c WHERE c.identite.genre = :genre AND c.identite.prenom = :prenom AND c.identite.nom = :nom")
     Optional<Cv24Entity> findByGenreAndPrenomAndNom(String genre, String prenom, String nom);
+
+
+
+    @Query("SELECT cv FROM Cv24Entity cv WHERE :objectif IS NULL OR LOWER(cv.objectif.value) LIKE LOWER(CONCAT('%', :objectif, '%'))")
+    Iterable<Cv24Entity> findByCriteria(
+            @Param("objectif") String objectif);
 }
