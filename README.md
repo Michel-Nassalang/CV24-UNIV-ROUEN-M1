@@ -9,11 +9,10 @@ Base de données PostgreSQL
 ## Configuration
 
 ### Démarrage de l'application
-* Pour démarrer l'application avec la base de données sur Docker qui est la configuration de base:
-  taper une des commandes suivantes
-
+* Pour démarrer l'application avec la base de données sur Docker qui est la configuration de base: 
+  taper la commande:
+    
     mvn spring-boot:run 
-    sudo mvn spring-boot:run # si nécessaire
 
 
 ### Base de données PostgreSQL avec Docker
