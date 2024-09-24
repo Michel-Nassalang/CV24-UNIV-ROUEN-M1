@@ -6,35 +6,15 @@ Bienvenue dans la documentation de l'application CV24v2. Cette documentation fou
 Le nom de l'application est défini comme cv24v2.
 Base de données PostgreSQL
 
-## Configuration 
+## Configuration
 
 ### Démarrage de l'application
-* Pour démarrer l'application avec la base de données sur Clevercloud qui est la configuration de base:
- taper une des commandes suivantes
-
+* Pour démarrer l'application avec la base de données sur Docker qui est la configuration de base:
+  taper une des commandes suivantes
 
     mvn spring-boot:run 
     sudo mvn spring-boot:run # si nécessaire
 
-* Pour démarrer l'application avec la base de données PostgresSql sur le Docker:
-  * Décommenter la dépendance docker-compose dans le pom.xml
-  * Décommenter la configuration de la base de donnée Docker sur application.properties dans le dossier ressources
-  * Commenter la configuration de la base de donnée par défaut (Celle de CleverCloud)
-  * Taper une des commandes suivantes
-
-    
-    mvn spring-boot:run 
-    sudo mvn spring-boot:run  # si nécessaire
-
-### Base de données PostgreSQL de CleverCloud :
-
-    Driver: org.postgresql.Driver
-    URL: jdbc:postgresql://bzptttevylzmtmfnefym-postgresql.services.clever-cloud.com:.../...
-    Nom d'utilisateur: ...
-    Mot de passe: ...
-    Dialecte Hibernate: org.hibernate.dialect.PostgreSQLDialect
-    DDL Auto: update
-    JPA Show SQL: Activé
 
 ### Base de données PostgreSQL avec Docker
 
