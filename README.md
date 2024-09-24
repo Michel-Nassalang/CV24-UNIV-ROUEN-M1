@@ -8,6 +8,9 @@ Base de données PostgreSQL
 
 ## Configuration
 
+### Remarque 
+Il est nécessaire d'avoir la version LTS de JAVA ( java 17).
+
 ### Démarrage de l'application
 * Pour démarrer l'application avec la base de données sur Docker qui est la configuration de base: 
   taper la commande:
