@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: cv24v2-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    networks:
+      - xml-network
+
+  db:
+    image: 'postgres:latest'
+    container_name: cv24v2-db
+    environment:
+      - 'POSTGRES_DB=xmldatabase'
+      - 'POSTGRES_PASSWORD=secretxml'
+      - 'POSTGRES_USER=userxml'
+    ports:
+      - "5435:5432"
+    networks:
+      - xml-network
+
+networks:
+  xml-network:

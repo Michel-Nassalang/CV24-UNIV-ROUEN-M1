@@ -9,14 +9,15 @@ Base de données PostgreSQL
 ## Configuration
 
 ### Remarque 
-Il est nécessaire d'avoir la version LTS de JAVA ( java 17).
+Il est nécessaire d'avoir docker qui tourne.
 
 ### Démarrage de l'application
 * Pour démarrer l'application avec la base de données sur Docker qui est la configuration de base: 
   taper la commande:
     
-    mvn spring-boot:run 
-
+```
+    docker-compose up --build
+```
 
 ### Base de données PostgreSQL avec Docker
 
@@ -28,15 +29,16 @@ Une configuration alternative pour la base de données PostgreSQL avec Docker es
 
 ### Paramètres de débogage
 
-Les paramètres de débogage sont configurés comme suit :
+Les paramètres de débogage sont configurés comme suit (à décommenter si nécessaire):
 
-    Niveau de journalisation pour les requêtes web: DEBUG
-    Inclure la pile d'erreurs dans les réponses d'erreur: Toujours
-
-Remarques
-
-Assurez-vous d'avoir correctement configuré les paramètres de votre base de données avant de lancer l'application.
-
+``` 
+#logging.level.org.springframework.web=DEBUG
+#server.error.include-stacktrace=ALWAYS
+```
+## ****************** Remarques importantes ******************
+##### La documentation Javadoc est disponible sur le dossier ****documentation**** 
+##### Les requetes montrant ce que fait l'API sont disponibles dans le dossier Postman positionné sur le dossier ressources ( > src/main/resources/postman)
+## ***********************************  ********************************
 
 ## Description du service REST
 #### I - Fonctionnalités
